@@ -59,17 +59,18 @@ def get_num_neighbors(grid, x, y):
     u_valid = u >= 0
     d_valid = d < len(grid)
     l_valid = l >- 0
-
     r_valid = r < len(grid[y])
     
     # populations 
     pop = 0
+
+    # orthogonal neighbor populations
     pop += 0 if not u_valid else grid[u][x] # pop_u
     pop += 0 if not d_valid else grid[d][x] # pop_d
     pop += 0 if not l_valid else grid[y][l] # pop_l
     pop += 0 if not r_valid else grid[y][r] # pop_r
 
-    # diagonal populations
+    # diagonal neighbor populations
     pop += 0 if not (u_valid and l_valid) else grid[u][l] # pop_u_l
     pop += 0 if not (u_valid and r_valid)else grid[u][r] # pop_u_r
     pop += 0 if not (d_valid and l_valid)else grid[d][l] # pop_d_l
